@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  repository: my-api
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+
+env:
+  PORT: "3000"
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: my-api.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []

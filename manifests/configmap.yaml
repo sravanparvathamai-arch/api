@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-api-config
+  labels:
+    app: my-api
+data:
+  PORT: "3000"
