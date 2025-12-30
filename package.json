@@ -15,16 +15,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "dotenv": "^10.0.0",
-    "morgan": "^1.10.0"
+    "express": "latest",
+    "dotenv": "latest",
+    "morgan": "latest"
   },
   "devDependencies": {
-    "jest": "^29.0.0",
-    "@types/jest": "^29.0.0",
-    "ts-jest": "^29.0.0",
-    "@types/express": "^4.17.17",
-    "@types/dotenv": "^8.2.0",
-    "@types/morgan": "^1.9.3"
+    "jest": "latest",
+    "@types/jest": "latest",
+    "ts-jest": "latest",
+    "@types/express": "latest",
+    "@types/dotenv": "latest",
+    "@types/morgan": "latest"
   }
 }
