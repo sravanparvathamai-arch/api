@@ -22,13 +22,13 @@ jobs:
         node-version: 18
 
     - name: Install dependencies
-      run: npm install
+      run: npm run pipeline:install
 
     - name: Run tests
-      run: npm test
+      run: npm run pipeline:test
 
     - name: Build application
-      run: npm run build
+      run: npm run pipeline:build
 
   docker:
     needs: build
