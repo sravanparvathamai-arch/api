@@ -12,12 +12,12 @@ const PORT = process.env.PORT || 3000;
 app.use(morgan('combined'));
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/health', (req: express.Request, res: express.Response) => {
   res.json({ status: 'ok' });
 });
 
 // Hello endpoint
-app.get('/api/v1/hello', (req, res) => {
+app.get('/api/v1/hello', (req: express.Request, res: express.Response) => {
   res.json({ message: 'Hello from Kubernetes' });
 });
 
