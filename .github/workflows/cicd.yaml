@@ -21,6 +21,10 @@ jobs:
       with:
         node-version: 18
 
+    - name: Generate package-lock.json
+      run: npm install
+      if: ${{ !hashFiles('**/package-lock.json') }}
+
     - name: Install dependencies
       run: npm run pipeline:install
 
