@@ -81,10 +81,11 @@ jobs:
         kubectl get nodes
         kubectl get pods --all-namespaces
 
-
-
     - name: Deploy to Kubernetes
       run: |
         helm upgrade --install my-api ./chart \
           --set image.repository=sravanx07/my-api \
           --set image.tag=latest
+        kubectl get pods --all-namespaces -o table
+
+    
