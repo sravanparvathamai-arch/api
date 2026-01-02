@@ -71,8 +71,8 @@ jobs:
         mkdir -p $HOME/.kube
         echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
         chmod 600 $HOME/.kube/config
-        kubectl config set-context --current --namespace=kube-public
-        kubectl config set-cluster kubeadmin
+        kubectl config set-context kubeadmin --cluster=kubeadmin --namespace=kube-public --user=kubeadmin
+        kubectl config use-context kubeadmin
       env:
         KUBECONFIG: $HOME/.kube/config
 
