@@ -71,7 +71,7 @@ jobs:
         mkdir -p $HOME/.kube
         echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
         chmod 600 $HOME/.kube/config
-        kubectl config set-cluster docker-desktop --server=https://kubernetes.docker.internal:6443 --certificate-authority-data=DATA+OMITTED --insecure-skip-tls-verify
+        kubectl config set-cluster docker-desktop --server=https://kubernetes.docker.internal:6443 --insecure-skip-tls-verify
         kubectl config set-credentials docker-desktop --username=${{ secrets.KUBE_USERNAME }} --password=${{ secrets.KUBE_PASSWORD }}
         kubectl config set-context docker-desktop --cluster=docker-desktop --namespace=kube-public --user=docker-desktop
         kubectl config use-context docker-desktop
