@@ -91,8 +91,10 @@ jobs:
       run: |
         sleep 20 
         kubectl get pods --all-namespaces -o wide
-        kubectl logs -l app=my-api
         kubectl get all -n default
+    - name: Get Logs
+      run: |
+        kubectl logs -l app=my-api
     
 
     
