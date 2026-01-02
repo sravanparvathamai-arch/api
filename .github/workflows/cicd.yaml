@@ -65,14 +65,21 @@ jobs:
       uses: azure/setup-kubectl@v3
       with:
         version: 'latest'
+
     - name: Kind Cluster
       uses: helm/kind-action@v1.13.0
+
+    - name: Debug kubeconfig
+      run: |
+        echo "KUBECONFIG=$KUBECONFIG"
+        ls -la ~/.kube || true
+        kubectl config get-contexts
+        
     - name: Verify Kubernetes Cluster Connection
       run: |
         kubectl cluster-info
         kubectl get nodes
-      env:
-        KUBECONFIG: $HOME/.kube/config
+
 
     - name: Deploy to Kubernetes
       run: |
