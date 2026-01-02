@@ -76,6 +76,13 @@ jobs:
       env:
         KUBECONFIG: $HOME/.kube/config
 
+    - name: Verify Kubernetes Cluster Connection
+      run: |
+        kubectl cluster-info
+        kubectl get nodes
+      env:
+        KUBECONFIG: $HOME/.kube/config
+
     - name: Deploy to Kubernetes
       run: |
         helm upgrade --install my-api ./chart \
