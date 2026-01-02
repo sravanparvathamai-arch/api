@@ -67,9 +67,13 @@ jobs:
         version: 'latest'
 
     - name: Set up Kubeconfig
-      run: echo "$KUBECONFIG" > kubeconfig && export KUBECONFIG=kubeconfig
+      run: |
+        echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+        chmod 600 $HOME/.kube/config
+        kubectl config set-context --current --namespace=kube-public
+        kubectl config set-cluster kubeadmin
       env:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        KUBECONFIG: $HOME/.kube/config
 
     - name: Deploy to Kubernetes
       run: |
