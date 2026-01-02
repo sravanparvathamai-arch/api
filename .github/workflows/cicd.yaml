@@ -72,7 +72,7 @@ jobs:
         echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
         chmod 600 $HOME/.kube/config
         kubectl config set-cluster kubeadmin --server=https://kubernetes.docker.internal:6443 --insecure-skip-tls-verify
-        kubectl config set-context kubeadmin --cluster=kubeadmin --namespace=kube-public --user=kubeadmin
+        kubectl config set-context kubeadmin --cluster=kubeadm --namespace=kube-public --user=sravan
         kubectl config use-context kubeadmin
       env:
         KUBECONFIG: $HOME/.kube/config
