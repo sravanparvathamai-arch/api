@@ -10,7 +10,7 @@ service:
   port: 3000
 
 env:
-  PORT: 3000
+  PORT: "3000"
 
 ingress:
   enabled: false
