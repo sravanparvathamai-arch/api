@@ -86,6 +86,12 @@ jobs:
         helm upgrade --install my-api ./chart \
           --set image.repository=sravanx07/my-api \
           --set image.tag=latest
-        kubectl get pods --all-namespaces -o table
+
+    - name: Verify Deployment
+      run: |
+        kubectl get pods --all-namespaces -o wide
+        kubectl logs -l app=my-api
+        kubectl get all -n default
+    
 
     
